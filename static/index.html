@@ -5,7 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light">
     <title>Freiburger Dreierlei Laufserie</title>
+    
     <link rel="stylesheet" href="pico.css">
+    <script src="leaflet.js"></script>
+    <link rel="stylesheet" href="leaflet.css" />
+    <link rel="stylesheet" href="leaflet-gesture-handling.min.css" type="text/css">
+    <script src="leaflet-gesture-handling.min.js"></script>
+    <style>
+        #map1, #map2, #map3 {
+            height: 400px;
+            margin-bottom: 20px;
+        }
+        .leaflet-container [role=button] {
+            padding: 0px 0px;
+        }
+        .leaflet-marker-pane [role=button] {
+            border: none;
+            background-color: transparent;
+            padding: 0px 0px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -72,9 +91,7 @@
         <p>
             <b>Wann?</b> Donnerstag, 9. Oktober 2025, 17:30 Uhr<br>
             <b>Wo?</b> Waldspielplatz "Ochsengespann" (unterhalb St. Ottilien)<br>
-            <b>Strava-Event:</b> <a href="https://www.strava.com/clubs/1286496/group_events/3402342899563676560" target="_blank">Traillauf beim Ochsengespann/Hirzberg</a><br>
-            <b>Fotos:</b> ...<br>
-            <b>Ergebnisliste:</b> ...<br>
+            <b>Links:</b> <a href="https://www.strava.com/clubs/1286496/group_events/3402342899563676560" target="_blank">Strava-Event</a>, <a href="#" disabled>Foto-Album (nach dem Event)</a>
             <blockquote>
             Strecke wie im letzten Jahr: Unsere Strecke führt euch zunächst auf einem wunderschönen Trail hinauf nach St. Ottilien. Von dort geht es weiter zur Hirzbergwiese, bevor ihr den Rückweg zum Start-Ziel-Bereich Ochsengespann antreten könnt. Freut euch auf abwechslungsreiches Terrain, das euch durch die atemberaubende Natur des Schwarzwalds führt!
             </blockquote>
@@ -85,9 +102,7 @@
         <p>
             <b>Wann?</b> Donnerstag, 16. Oktober 2025, 17:30 Uhr<br>
             <b>Wo?</b> City Sport Freiburg<br>
-            <b>Strava-Event:</b> <a href="https://www.strava.com/clubs/1286496/group_events/3402343722517234372" target="_blank">Berglauf Schlossbergturm/Start City Sport Freiburg</a><br>
-            <b>Fotos:</b> ...<br>
-            <b>Ergebnisliste:</b> ...<br>
+            <b>Links:</b> <a href="https://www.strava.com/clubs/1286496/group_events/3402343722517234372" target="_blank">Strava-Event</a>, <a href="#" disabled>Foto-Album (nach dem Event)</a>
             <blockquote>
             Start ist beim City Sport. Von da aus geht's zum Schlossbergturm hoch um sich oben auf dem Turm ein Bändchen zu holen und das Ziel ist wieder beim City Sport. Strecke? Such sie dir selbst aus. Jeder ist selbst für die Streckenfindung verantwortlich.
             </blockquote>
@@ -98,9 +113,7 @@
         <p>
             <b>Wann?</b> Donnerstag, 23. Oktober 2025, 17:30 Uhr<br>
             <b>Wo?</b> HOKK Kiosk beim FT<br>
-            <b>Strava-Event:</b> <a href="https://www.strava.com/clubs/1286496/group_events/3402344247239485124" target="_blank">5km flach</a><br>
-            <b>Fotos:</b> ...<br>
-            <b>Ergebnisliste:</b> ...<br>
+            <b>Links:</b> <a href="https://www.strava.com/clubs/1286496/group_events/3402344247239485124" target="_blank">Strava-Event</a>, <a href="#" disabled>Foto-Album (nach dem Event)</a>
             <blockquote>
             Start und Ziel ist beim neuen Hokk beim FT Freiburg. Die Strecke wird flach an der Dreisam sein. Anschluss ist beim Hokk. Hoffentlich bei gutem Wetter draussen.
             </blockquote>
@@ -176,4 +189,49 @@
         </small>
     </footer>
 </body>
+
+    <script>
+        //L.Map.addInitHook("addHandler", "gestureHandling", GestureHandling);
+
+        ll1 = [47.991272,7.893081];
+        var track1 = [[47.991155,7.893261],[47.991304,7.893023],[47.991427,7.892827],[47.991817,7.892403],[47.991877,7.892352],[47.992348,7.891998],[47.992540,7.891785],[47.992647,7.891571],[47.992780,7.891385],[47.993087,7.891193],[47.993116,7.891121],[47.993179,7.891174],[47.993562,7.891529],[47.993873,7.891895],[47.994080,7.891999],[47.994750,7.891885],[47.994799,7.891835],[47.994990,7.891844],[47.995459,7.891737],[47.995875,7.891853],[47.995935,7.891927],[47.996971,7.892490],[47.997740,7.893167],[47.998193,7.893752],[47.998516,7.893971],[47.998609,7.894068],[47.998947,7.894970],[47.999102,7.895288],[47.999256,7.895750],[47.999375,7.896108],[47.999464,7.896273],[47.999670,7.896514],[47.999800,7.896714],[47.999785,7.897048],[47.999970,7.897577],[47.999977,7.897669],[47.999992,7.897855],[48.000039,7.898076],[48.000012,7.898157],[47.999953,7.898161],[47.999808,7.897949],[47.999505,7.897596],[47.999448,7.897579],[47.999398,7.897624],[47.999404,7.897711],[47.999860,7.898516],[48.000065,7.898794],[48.000117,7.898995],[48.000122,7.899208],[48.000065,7.899464],[48.000208,7.899549],[48.000242,7.899718],[48.000305,7.899779],[48.000499,7.899701],[48.000788,7.899891],[48.000901,7.900001],[48.001024,7.900034],[48.001283,7.900299],[48.001361,7.900343],[48.001400,7.900278],[48.001361,7.899968],[48.001371,7.899800],[48.001414,7.899659],[48.001485,7.899608],[48.001513,7.899589],[48.001643,7.899594],[48.001745,7.899644],[48.002443,7.899658],[48.002641,7.899518],[48.002847,7.899301],[48.002888,7.899193],[48.002877,7.899079],[48.002847,7.899017],[48.002666,7.898853],[48.002616,7.898611],[48.002618,7.898451],[48.002397,7.898477],[48.002095,7.898410],[48.001919,7.898187],[48.001759,7.897712],[48.001677,7.897361],[48.001213,7.896774],[48.001065,7.896412],[48.000719,7.895191],[48.000628,7.894764],[48.000567,7.894398],[48.000612,7.894152],[48.000753,7.893902],[48.001208,7.893397],[48.001605,7.893216],[48.001640,7.893134],[48.001437,7.892834],[48.001059,7.892518],[48.000878,7.892236],[48.000764,7.892002],[48.000688,7.891950],[47.999716,7.891801],[47.999581,7.891726],[47.999468,7.891534],[47.999371,7.891221],[47.999303,7.890794],[47.999212,7.890590],[47.999037,7.890434],[47.998813,7.890083],[47.998671,7.889797],[47.998595,7.889545],[47.998582,7.889368],[47.998627,7.888949],[47.998795,7.888681],[47.998818,7.888564],[47.998764,7.888385],[47.998600,7.888263],[47.998355,7.888011],[47.998088,7.887873],[47.997209,7.887833],[47.997049,7.887684],[47.996883,7.887423],[47.996832,7.887332],[47.996772,7.887084],[47.996788,7.886832],[47.996892,7.886645],[47.998021,7.885756],[47.998309,7.885573],[47.998445,7.885404],[47.998484,7.885221],[47.998467,7.884721],[47.998215,7.884375],[47.998079,7.884295],[47.997701,7.883748],[47.997564,7.883306],[47.997555,7.882884],[47.997590,7.882532],[47.997685,7.882094],[47.997652,7.881934],[47.997232,7.881703],[47.997180,7.881561],[47.997126,7.881373],[47.997195,7.880661],[47.997153,7.880466],[47.997029,7.880319],[47.996717,7.880303],[47.996550,7.880072],[47.996439,7.879832],[47.996373,7.879471],[47.996339,7.879064],[47.996343,7.878664],[47.996265,7.878512],[47.995785,7.878188],[47.995686,7.878016],[47.995637,7.877868],[47.994999,7.877900],[47.995014,7.878032],[47.994780,7.877843],[47.994422,7.877901],[47.994050,7.877910],[47.993581,7.877806],[47.993485,7.877470],[47.993403,7.877380],[47.993227,7.877283],[47.993093,7.877335],[47.993068,7.877345],[47.992965,7.877332],[47.992878,7.877475],[47.992519,7.877742],[47.992423,7.877916],[47.992410,7.878097],[47.992436,7.878575],[47.992593,7.878989],[47.992675,7.878971],[47.993085,7.878444],[47.993119,7.878418],[47.993373,7.878226],[47.993975,7.878217],[47.994657,7.878209],[47.994422,7.877901],[47.994780,7.877843],[47.995014,7.878032],[47.995257,7.878284],[47.995756,7.878597],[47.995858,7.878722],[47.995872,7.878738],[47.995935,7.878942],[47.995792,7.879657],[47.995731,7.880218],[47.995753,7.880469],[47.995919,7.880770],[47.996397,7.880941],[47.996462,7.880970],[47.996490,7.881051],[47.996452,7.881494],[47.996483,7.881742],[47.996531,7.881926],[47.996641,7.882044],[47.996952,7.882184],[47.996992,7.882278],[47.996984,7.882498],[47.996679,7.883217],[47.996656,7.883345],[47.996662,7.883478],[47.996847,7.884012],[47.996916,7.884274],[47.996927,7.884421],[47.996926,7.884568],[47.996776,7.884685],[47.996228,7.884755],[47.995927,7.884847],[47.995779,7.884978],[47.995686,7.885176],[47.995612,7.885866],[47.995567,7.886032],[47.995499,7.886151],[47.995387,7.886210],[47.995114,7.886212],[47.994922,7.886214],[47.994708,7.886305],[47.994634,7.886442],[47.994599,7.886593],[47.994437,7.887670],[47.994395,7.887803],[47.994286,7.887970],[47.994202,7.888062],[47.994149,7.888173],[47.994129,7.888325],[47.994169,7.888571],[47.994265,7.888929],[47.994417,7.889319],[47.994525,7.889508],[47.994637,7.889645],[47.994854,7.889802],[47.995458,7.890072],[47.995691,7.890241],[47.995964,7.890321],[47.996031,7.890380],[47.996078,7.890529],[47.996059,7.890665],[47.996050,7.890683],[47.996007,7.890763],[47.995902,7.890886],[47.995655,7.890931],[47.995446,7.890992],[47.994689,7.890872],[47.994431,7.890831],[47.994120,7.890688],[47.993560,7.890296],[47.993600,7.890659],[47.993560,7.890831],[47.993393,7.890931],[47.993179,7.891174],[47.993116,7.891121],[47.993087,7.891193],[47.992780,7.891385],[47.992647,7.891571],[47.992540,7.891785],[47.992348,7.891998],[47.991877,7.892352],[47.991817,7.892403],[47.991427,7.892827],[47.991304,7.893023]];
+        var map1 = L.map('map1', {
+            gestureHandling: true
+        }).setView(ll1, 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map1);
+        var marker1 = L.marker(ll1).addTo(map1);
+        marker1.bindPopup("<b>Start/Ziel Traillauf</b><br>Waldspielplatz Ochsengespann");
+        var polyline1 = L.polyline(track1, {color: 'blue'}).addTo(map1);
+        map1.fitBounds(polyline1.getBounds());
+
+        ll2a = [47.998177, 7.849318];
+        ll2b = [47.995034, 7.862000];
+        var map2 = L.map('map2', {
+            gestureHandling: true
+        }).fitBounds([ll2a, ll2b]);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map2);
+        var marker2a = L.marker(ll2a).addTo(map2);
+        marker2a.bindPopup("<b>Start/Ziel Berglauf</b><br>City Sport Freiburg");
+        var marker2b = L.marker(ll2b).addTo(map2);
+        marker2b.bindPopup("<b>Wendepunkt Berglauf</b><br>Schlossbergturm");
+        var polyline2 = L.polyline([ll2a, ll2b], {color: 'blue', dashArray: '5, 10'}).addTo(map2);
+        map2.fitBounds(polyline2.getBounds());
+
+        ll3 = [47.991236, 7.883817];
+        var map3 = L.map('map3', {
+            gestureHandling: true
+        }).setView(ll3, 16);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map3);
+        var marker3 = L.marker(ll3).addTo(map3);
+        marker3.bindPopup("<b>Start/Ziel 5km flach</b><br>HOKK Kiosk beim FT");
+    </script>
 </html>
