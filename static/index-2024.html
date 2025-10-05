@@ -6,12 +6,17 @@
     <meta name="color-scheme" content="light">
     <title>Freiburger Dreierlei Laufserie 2024 (Archiv)</title>
     <link rel="stylesheet" href="pico.css">
+    <script defer src="umami.js" data-website-id="ff4ad9c5-0405-4fcd-85fa-d7b014bf218f"></script>
+
 </head>
 <body>
     <header>
     <nav>
         <ul>
-            <li><a href="index.html"><strong>Freiburger Dreierlei</strong></a></li>
+            <li>
+                <img src="/logo.jpg" style="width: 3.46em; height: 1.5em;">
+                <a href="index.html"><strong style="font-size: 1.5em; vertical-align: middle;">Freiburger Dreierlei</strong></a>
+            </li>
         </ul>
         <ul>
             <li><a href="index.html">2025</a></li>
@@ -70,4 +75,22 @@
         </small>
     </footer>
 </body>
+
+    <script>
+        // UMAMI
+        document.querySelectorAll("a[target=_blank]").forEach((a) => {
+            if (a.getAttribute("data-umami-event") === null) {
+                a.setAttribute('data-umami-event', 'outbound-link-click');
+            }
+            a.setAttribute('data-umami-event-url', a.href);
+        });
+        if (location.hash === '#disable-umami') {
+            localStorage.setItem('umami.disabled', 'true');
+            alert('Umami is now DISABLED in this browser.');
+        }
+        if (location.hash === '#enable-umami') {
+            localStorage.removeItem('umami.disabled');
+            alert('Umami is now ENABLED in this browser.');
+        }
+    </script>
 </html>

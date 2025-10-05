@@ -29,6 +29,13 @@ for FILE in "${FILES[@]}"; do
     fi
 done
 
+# umami: https://cloud.umami.is/script.js
+if [ ! -f static/umami.js ]; then
+    echo "Downloading umami.js"
+    mkdir -p static
+    curl -L https://cloud.umami.is/script.js -o static/umami.js
+fi
+
 ssh $TARGETHOST mkdir -p $TARGETDIR
 rsync -av --delete static/ $TARGETHOST:$TARGETDIR
 
