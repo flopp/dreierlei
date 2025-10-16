@@ -244,8 +244,8 @@
             maxZoom: 19,
             attribution: '© OpenStreetMap'
         }).addTo(map3);
-        var polyline1 = L.polyline(track1, {color: 'blue'}).addTo(map1);
-        map1.fitBounds(polyline1.getBounds());
+        var polyline3 = L.polyline(track3, {color: 'blue'}).addTo(map3);
+        map3.fitBounds(polyline3.getBounds());
         var marker3 = L.marker(ll3).addTo(map3);
         marker3.bindPopup("<b>Start/Ziel 5km flach</b><br>HOKK Kiosk beim FT");
 
